@@ -1,0 +1,2 @@
+inputfile	pipelines/Plots/A.trimmed.testset.csv
+label	A

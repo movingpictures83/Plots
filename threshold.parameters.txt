@@ -1,0 +1,4 @@
+inputfile	pipelines/Plots/abundRaw.csv
+threshold	100
+normalize	false
+startcol	3

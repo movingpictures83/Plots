@@ -1,0 +1,3 @@
+inputfile	pipelines/Plots/A.trimmed.csv
+start		1
+end		5

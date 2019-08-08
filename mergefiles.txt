@@ -1,0 +1,2 @@
+pipelines/Plots/A.trimmed.labeled.csv
+pipelines/Plots/F.trimmed.labeled.csv

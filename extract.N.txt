@@ -1,0 +1,3 @@
+inputfile	pipelines/Plots/abund.thresholded.csv
+column		2
+value		N
