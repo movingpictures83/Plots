@@ -1,1 +1,1 @@
-input1	pipelines/Plots/A.trimmed.testset.labeled.csv
+input1	pipelines/Plots/A/abund.trimmed.testset.labeled.csv

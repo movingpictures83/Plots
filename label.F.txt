@@ -1,2 +1,2 @@
-inputfile	pipelines/Plots/F.trimmed.csv
+inputfile	pipelines/Plots/F/abund.trimmed.csv
 label	F

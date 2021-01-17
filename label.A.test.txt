@@ -1,2 +1,2 @@
-inputfile	pipelines/Plots/A.trimmed.testset.csv
+inputfile	pipelines/Plots/A/abund.trimmed.testset.csv
 label	A

@@ -1,3 +1,3 @@
-inputfile	pipelines/Plots/F.trimmed.csv
+inputfile	F/abund.trimmed.csv
 start		1
 end		5

@@ -1,2 +1,0 @@
-inputfile	pipelines/Plots/abund.thresholded.csv
-start		3

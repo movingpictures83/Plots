@@ -1,2 +1,2 @@
-A.trimmed.labeled.csv
-F.trimmed.labeled.csv
+A/abund.trimmed.labeled.csv
+F/abund.trimmed.labeled.csv

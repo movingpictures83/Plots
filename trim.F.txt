@@ -1,2 +1,0 @@
-inputfile	pipelines/Plots/F.csv
-start		3

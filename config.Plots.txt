@@ -1,41 +1,40 @@
 Prefix pipelines/Plots
 # Threshold raw input
-Plugin Threshold inputfile threshold.parameters.txt outputfile abund.thresholded.csv 
+Plugin Threshold inputfile threshold.parameters.txt outputfile All/abund.thresholded.csv 
 
 # Extract three datasets A, F and N
-Plugin CSVExtract inputfile extract.A.txt outputfile A.csv
-Plugin CSVExtract inputfile extract.F.txt outputfile F.csv
-Plugin CSVExtract inputfile extract.N.txt outputfile N.csv
+Plugin CSVExtract inputfile extract.A.txt outputfile A/abund.thresholded.csv
+Plugin CSVExtract inputfile extract.F.txt outputfile F/abund.thresholded.csv
+Plugin CSVExtract inputfile extract.N.txt outputfile N/abund.thresholded.csv
 
-# Trim these datasets to only contain data and not labels
-Plugin CSVTrim inputfile trim.A.txt outputfile A.trimmed.csv
-Plugin CSVTrim inputfile trim.F.txt outputfile F.trimmed.csv
-Plugin CSVTrim inputfile trim.N.txt outputfile N.trimmed.csv
-Plugin CSVTrim inputfile trim.All.txt outputfile All.trimmed.csv
-
-# Construct boxplots of the data
-Plugin BoxPlot inputfile A.trimmed.csv outputfile A.boxplot
-Plugin BoxPlot inputfile F.trimmed.csv outputfile F.boxplot
-Plugin BoxPlot inputfile N.trimmed.csv outputfile N.boxplot
-Plugin BoxPlot inputfile All.trimmed.csv outputfile All.boxplot
+# Trim and construct boxplots
+Kitty A
+Pipeline pipelines/Plots/config.BoxPlot.txt
+Kitty F
+Pipeline pipelines/Plots/config.BoxPlot.txt
+Kitty N
+Pipeline pipelines/Plots/config.BoxPlot.txt
+Kitty All
+Pipeline pipelines/Plots/config.BoxPlot.txt
 
 # For a specific testset of observables
 # Build a boxplot for one dataset (A)
 # Compute correlations, and build a heatmap
 # Run linear regression, and build a heatmap
 # Build a boxplot for two datasets (A and F)
-Plugin CSVTrim inputfile testset.A.txt outputfile A.trimmed.testset.csv
-Plugin BoxPlot inputfile A.trimmed.testset.csv outputfile A.testset
+Kitty .
+Plugin CSVTrim inputfile testset.A.txt outputfile A/abund.trimmed.testset.csv
+Plugin BoxPlot inputfile A/abund.trimmed.testset.csv outputfile A/abund.testset
 
-Plugin CSVLabel inputfile label.A.test.txt outputfile A.trimmed.testset.labeled.csv
-Plugin Pearson inputfile A.trimmed.testset.labeled.csv outputfile corrTestA.csv
-Plugin Heatmap inputfile corrTestA.csv outputfile corrTestA.heatmap
-Plugin LMS inputfile A.trimmed.testset.labeled.csv outputfile clregTestA.csv
-Plugin Heatmap inputfile clregTestA.csv outputfile clregTestA.heatmap
+Plugin CSVLabel inputfile label.A.test.txt outputfile A/abund.trimmed.testset.labeled.csv
+Plugin Pearson inputfile A/abund.trimmed.testset.labeled.csv outputfile A/corrTest.csv
+Plugin Heatmap inputfile A/corrTest.csv outputfile A/corrTest.heatmap
+Plugin LMS inputfile A/abund.trimmed.testset.labeled.csv outputfile A/clregTest.csv
+Plugin Heatmap inputfile A/clregTest.csv outputfile A/clregTest.heatmap
 
-Plugin CSVTrim inputfile testset.F.txt outputfile F.trimmed.testset.csv
-Plugin PCA inputfile pca.A.txt outputfile A.pca
-Plugin CSVLabel inputfile label.A.txt outputfile A.trimmed.labeled.csv
-Plugin CSVLabel inputfile label.F.txt outputfile F.trimmed.labeled.csv
-Plugin CSVMerge inputfile mergefiles.txt outputfile AF.trimmed.labeled.csv
-Plugin BoxPlot inputfile AF.trimmed.labeled.csv outputfile AF.boxplot
+Plugin CSVTrim inputfile testset.F.txt outputfile F/abund.trimmed.testset.csv
+Plugin PCA inputfile pca.A.txt outputfile A/abund.pca
+Plugin CSVLabel inputfile label.A.txt outputfile A/abund.trimmed.labeled.csv
+Plugin CSVLabel inputfile label.F.txt outputfile F/abund.trimmed.labeled.csv
+Plugin CSVMerge inputfile mergefiles.txt outputfile AF/abund.trimmed.labeled.csv
+Plugin BoxPlot inputfile AF/abund.trimmed.labeled.csv outputfile AF/abund.boxplot
