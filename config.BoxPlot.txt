@@ -1,0 +1,2 @@
+Plugin CSVTrim inputfile ../trim.txt outputfile abund.trimmed.csv
+Plugin BoxPlot inputfile abund.trimmed.csv outputfile abund.boxplot
